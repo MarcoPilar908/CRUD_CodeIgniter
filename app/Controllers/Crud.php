@@ -35,10 +35,31 @@ class Crud extends BaseController
 		}
 	}
 	public function actualizar(){
+		$datos = [
+			"id_nombre" =>$_POST['idNombre'],
+			"nombre" => $_POST['nombre'],
+			"paterno" => $_POST['paterno'],
+			"materno" => $_POST['materno']
+		];
+		$idNombre = $_POST['idNombre'];
+		$Crud = new CrudModel();
 
+		$respuesta = $Crud->actualizar($datos,$idNombre);
+
+		if($respuesta){
+			return redirect()->to(base_url().'/')->with('mensaje','2');
+		}else{
+			return redirect()->to(base_url().'/')->with('mensaje','3');
+		}
 	}
 	public function obtenerNombre($idNombre){
+		$data = ["id_nombre"=>$idNombre];
+		$Crud = new CrudModel();
+		$respuesta = $Crud->obtenerNombre($data);
 
+		$datos = ["datos"=> $respuesta];
+
+		return view('actualizar',$datos);
 	}
 	public function eliminar($idNombre){
 

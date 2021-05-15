@@ -47,7 +47,7 @@
                     <td><?php echo $key->paterno ?></td>
                     <td><?php echo $key->materno ?></td>
                     <td>
-                    <a href="<?php echo base_url().'/obtenerNombre/$key->id_nombre' ?>" class="btn btn-warning btn-sm">Editar</a>
+                    <a href="<?php echo base_url().'/obtenerNombre/'.$key->id_nombre ?>" class="btn btn-warning btn-sm">Editar</a>
                     </td>
                     <td>
                     <a href="" class="btn btn-danger btn-sm">Eliminar</a>
@@ -72,6 +72,10 @@
         swal(':D','Agregado exitosamente!','success');
     }else if(mensaje == '0'){
         swal('X','Falló al agregar','error');
+    }else if(mensaje== '2') {
+        swal(':D','Actualizado correctamente!','success');
+    }else if(mensaje== '3') {
+        swal('X','Falló al actualizar','error');
     }
     </script>
   </body>
