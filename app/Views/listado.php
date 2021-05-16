@@ -50,7 +50,7 @@
                     <a href="<?php echo base_url().'/obtenerNombre/'.$key->id_nombre ?>" class="btn btn-warning btn-sm">Editar</a>
                     </td>
                     <td>
-                    <a href="" class="btn btn-danger btn-sm">Eliminar</a>
+                    <a href="<?php echo base_url().'/eliminar/'.$key->id_nombre ?>" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                     </tr>
                     <?php endforeach; ?>
@@ -76,6 +76,10 @@
         swal(':D','Actualizado correctamente!','success');
     }else if(mensaje== '3') {
         swal('X','Falló al actualizar','error');
+    }else if(mensaje=='4'){
+        swal(':D','Eliminado correctamente!','success');
+    }else if(mensaje=='5'){
+        swal('X','Falló al eliminar','error');
     }
     </script>
   </body>

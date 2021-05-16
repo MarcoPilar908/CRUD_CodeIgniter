@@ -23,4 +23,9 @@
 
             return $Nombres->update();
         }
+        public function eliminar($data) {
+            $Nombres = $this->db->table('t_personas');
+            $Nombres->where($data);
+            return $Nombres->delete();
+        }
         }

@@ -22,6 +22,7 @@ class Crud extends BaseController
 	}
 	public function crear(){
 		$datos = [
+			
 			"nombre" => $_POST['nombre'],
 			"paterno" => $_POST['paterno'],
 			"materno" => $_POST['materno']
@@ -62,6 +63,15 @@ class Crud extends BaseController
 		return view('actualizar',$datos);
 	}
 	public function eliminar($idNombre){
+		$Crud = new CrudModel();
+		$data = ["id_nombre" => $idNombre];
 
+		$respuesta = $Crud->eliminar($data);
+
+		if($respuesta){
+			return redirect()->to(base_url().'/')->with('mensaje','4');
+		}else{
+			return redirect()->to(base_url().'/')->with('mensaje','5');
+		}
 	}
 }
